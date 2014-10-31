@@ -1,0 +1,117 @@
+@font-face {
+ font-family: 'Roboto';
+ font-style: normal;
+ font-weight: 100;
+ src: local('Roboto Thin'), local('Roboto-Thin'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/vzIUHo9z-oJ4WgkpPOtg13YhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+@font-face {
+ font-family: 'Roboto';
+ font-style: normal;
+ font-weight: 400;
+ src: local('Roboto Regular'), local('Roboto-Regular'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+
+html,body {
+  overflow: auto;
+  font-family: "Roboto", "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: white;
+}
+
+.login-background {
+  border-radius: 10px;
+  background-color: #720a17;
+}
+
+.input-surface {
+  border: 1px solid red;
+  font-size: 11pt;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.fb-button {
+  border-radius: 10px;
+  background-color: #3b5998;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  line-height: 50px;
+}
+
+.login-or {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20pt;
+}
+
+.button {
+  background-color: #B81321;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.header-background {
+  background-color: cyan;
+  box-shadow: 0px 6px 2px #ccc;
+}
+
+.profile-picture {
+  margin-top: 25px;
+  margin-left: 50px;
+  border: 1px solid #fff;
+}
+.profile-user {
+  margin-left: 50px;
+  font-size: 20pt;
+  font-weight: bold;
+  color: white;
+  background-color: #262626;
+/*  font-family: times;*/
+  border-radius: 5px;
+  border: 1px solid #fff;
+  padding-left: 10px;
+  line-height: 50px;
+}
+
+.header-logo {
+  margin-top: 20px;
+}
+
+.main-post-area {
+  background-color: lightgrey;
+  margin-top: 25px;
+  border-bottom: 1px solid #fff;
+}
+
+.inside-post-surface {
+  border-radius: 10px;
+  margin-top: 25px;
+  background-color: white;
+  box-shadow: 0px 3px 5px grey;
+}
+
+.right-surface {
+  background-color: red;
+}
+
+.left-surface {
+  background-color: red;
+}
+
+.date-surface {
+  text-align: center;
+  padding-top: 175px;
+  font-size: 30pt;
+  color: #000;
+  font-weight: bolder;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #000;
+}
