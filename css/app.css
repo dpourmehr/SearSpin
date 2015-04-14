@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
 @font-face {
  font-family: 'Roboto';
  font-style: normal;
@@ -11,107 +13,145 @@
  src: local('Roboto Regular'), local('Roboto-Regular'), url(https://themes.googleusercontent.com/static/fonts/roboto/v9/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
 }
 
+@font-face{
+  font-family: 'BlendaScript';
+  src: url(http://www.codefyr.com/files/fonts/blenda/blenda-script.otf);
+}
+
+
+
 html,body {
-  overflow: auto;
-  font-family: "Roboto", "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
+  overflow: scroll;
+  background-image: url('../content/images/lines.jpg');
+  background-size: cover;
   -webkit-user-select: none;
-  -webkit-font-smoothing: antialiased;
   background-color: white;
+  font-family: "Roboto", "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  -webkit-user-select: none;
 }
 
-.login-background {
-  border-radius: 10px;
-  background-color: #720a17;
-}
-
-.input-surface {
-  border: 1px solid red;
-  font-size: 11pt;
-  padding-left: 10px;
-  border-radius: 10px;
-}
-
-.fb-button {
-  border-radius: 10px;
-  background-color: #3b5998;
-  color: white;
+.home-title {
+  font-size: 40pt;
   text-align: center;
-  font-weight: bold;
-  line-height: 50px;
-}
-
-.login-or {
+  font-weight: 500;
   color: white;
-  font-weight: bold;
-  text-align: center;
-  line-height: 50px;
-  font-size: 20pt;
 }
 
-.button {
-  background-color: #B81321;
-  line-height: 50px;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
+.product-image {
+  margin: 10px;
+  border: 1px solid #000;
 }
 
-.header-background {
-  background-color: cyan;
-  box-shadow: 0px 6px 2px #ccc;
+.product-line {
+  padding: 10px;
+  font-family: 'Open Sans';
 }
 
-.profile-picture {
-  margin-top: 25px;
-  margin-left: 50px;
-  border: 1px solid #fff;
-}
-.profile-user {
-  margin-left: 50px;
-  font-size: 20pt;
-  font-weight: bold;
-  color: white;
-  background-color: #262626;
-/*  font-family: times;*/
+.product-background {
+  background-color: white;
   border-radius: 5px;
-  border: 1px solid #fff;
+}
+
+.product-description {
+  padding: 10px;
+  font-family: 'Open Sans';
+  font-size: 10pt;
+}
+
+.summary-title {
+  font-size: 15pt;
+  font-weight: bold;
+  font-family: 'Open Sans';
   padding-left: 10px;
-  line-height: 50px;
+  text-decoration: underline;
+  font-family: 'Open Sans';
+  margin-left: 10px;
 }
 
-.header-logo {
-  margin-top: 20px;
-}
-
-.main-post-area {
-  background-color: lightgrey;
-  margin-top: 25px;
-  border-bottom: 1px solid #fff;
-}
-
-.inside-post-surface {
-  border-radius: 10px;
-  margin-top: 25px;
-  background-color: white;
-  box-shadow: 0px 3px 5px grey;
-}
-
-.right-surface {
-  background-color: red;
-}
-
-.left-surface {
-  background-color: red;
-}
-
-.date-surface {
+.continue-button {
   text-align: center;
-  padding-top: 175px;
-  font-size: 30pt;
-  color: #000;
+  line-height: 30px;
+  font-size: 20pt;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+}
+
+.facebook-image {
+  border-radius: 10px;
+}
+
+.summary-line {
+  font-size: 12pt;
+  font-weight: normal;
+  font-family: 'Open Sans';
+  padding-left: 10px;
+}
+
+.interests-button {
+  background-color: red;
+}
+
+.congrats-share {
+  text-align: center;
+  line-height: 44px;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  font-family: 'Open Sans';
+  transition: all 0.2s linear;
+}
+
+.congrats-title {
+  font-size: 40pt;
+  color: white;
   font-weight: bolder;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #000;
+  text-align: center;
+  line-height: 200px;
+  font-family: 'BlendaScript';
+}
+
+.congrats-content {
+  font-size: 15pt;
+  color: white;
+  text-align: center;
+  font-family: 'Open Sans';
+}
+
+.spin-button {
+  text-shadow: 1px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20pt;
+  background: #3498db;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+  transition: all 0.2s linear;
+}
+
+.category-button:hover {
+  background-color: #fff;
+  color: #444;
+}
+
+.categories-instruction {
+  color: #fff;
+  line-height: 50px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16pt;
+}
+
+.category-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.2s linear;
+  text-align: center;
+ /* background-color: #25438a;*/
+  font-weight: bold;
+  color: white;
+  font-size: 17pt;
+  border-radius: 10px;
+  line-height: 150px;
 }

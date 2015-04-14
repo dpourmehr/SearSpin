@@ -18,70 +18,85 @@ define(function(require, exports, module) {
     var SnapTransition = require('famous/transitions/SnapTransition');
     var StateModifier = require('famous/modifiers/StateModifier');
 
-    var Login = require('./../../src/Views/login-page');
-    var Profile = require('./../../src/Views/profile-page');
+    var HomePage = require('../src/Views/home-page.js');
+    var CongratsPage = require('../src/Views/congratulations-page.js');
+    var FinalPage = require('../src/Views/final-page.js');
+    var FriendsPage = require('../src/Views/friends-page.js');
+
+    window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '886963431348171', // App ID
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      oauth      : true, // enable OAuth 2.0
+      xfbml      : true  // parse XFBML
+    });    
+
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "lib/facebookandsearsapi/scripts/all.js";
+     d.getElementsByTagName('head')[0].appendChild(js);
+   }(document));
 
     var App = function() {
 
       var self = this;
 
       this.mainContext = Engine.createContext();
-      this.mainContext.setPerspective(3000);
+
       this.renderController = new RenderController();
 
-	this.loginPage = new Login(this.renderController);
+      this.mainContext.add(this.renderController);
 
+      this.home = new HomePage();
+      this.finalPage = null;
+      this.congratsPage = null;
+      this.friendsPage = new FriendsPage();
 
-      this.mainContext.add(new Modifier({origin: [0, 0.5]})).add(this.renderController);
+      this.congratsPage = new CongratsPage();
 
-      this.showLogin();
+      this.showHome();
+
     }
 
-    App.prototype.showLogin = function() {
+    App.prototype.showHome = function() {
+
       var transition = {
         method: SnapTransition,
         period: 300,
         dampingratio: .8,
         velocity: 0
       }
+
       var self = this;
       var view = new View();
 
-      this.loginModifier = new Modifier({
-        origin: [0.25, 0.5],
-        transform: Transform.translate(1000, 0, 0)
+      view.add(this.home.getView());
+
+      this.renderController.show(view);
+
+      this.home.getView().on('spin', function() {
+        self.renderController.show(self.congratsPage.getView());
       });
 
-      view.add(this.loginModifier).add(this.loginPage.getView()[0]);
+      this.congratsPage.getView().on('no-share', function() {
+        self.finalPage = new FinalPage();
+        self.renderController.show(self.finalPage.getView());
+      });
 
-      var logoView = new View();
-      
-	var spinningCircle = new Surface({
-		size: [650, 650],
-		content: '<img src="http://s30.postimg.org/dsiagqdv5/img_thing.png" width="650px" height="650px">'
-	});
+      this.congratsPage.getView().on('share', function() {
+        self.renderController.show(self.friendsPage.getView());
+      });
 
-	var initTime = Date.now();
-	var spinner = new Modifier({
-		origin: [0.5, 0.5],
-		transform: function() {
-			return Transform.rotateZ(.0004 * (Date.now() - initTime));
-		}
-	});
+      this.friendsPage.getView().on('continue', function() {
+        self.finalPage = new FinalPage();
+        self.renderController.show(self.finalPage.getView());
+      });
 
-	logoView.add(spinner).add(spinningCircle);
-	
-	var logoSurface = new Surface({
-		size: [600, 250],
-		content: '<img src="http://s29.postimg.org/h9wpf8uw7/physica.png">'
-	});
-
-	logoView.add(new Modifier({origin: [0.5, 0.5], transform: Transform.scale(.8, .8, 1)})).add(logoSurface);
-
-	view.add(new Modifier({transform: Transform.translate(400, 0, 0)})).add(logoView);
-
-      this.loginModifier.setTransform(Transform.translate(0, 0, 0), {method: SnapTransition, period: 600, velocity: 0, dampingRatio: .6});
-      this.renderController.show(view);
     }
 
     module.exports = App;
